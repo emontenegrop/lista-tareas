@@ -7,38 +7,42 @@ Conceptos principales de react
 Concepto: Son la base de cualquier aplicación React. Un componente puede ser una función o una clase que devuelve JSX (HTML con JavaScript).
 
 Ejemplo:
-
-function Saludo() {
-  return <h1>Hola, Mundo!</h1>;
-}
+  ```
+  function Saludo() {
+    return <h1>Hola, Mundo!</h1>;
+  }
+  ```
+  
 
 # 2. JSX (JavaScript XML)
 
 Concepto: Es una sintaxis que permite escribir HTML dentro de JavaScript.
 
 Ejemplo:
-
+```
 const elemento = <h1>¡Hola desde JSX!</h1>;
+```
 
 # 3. Props (Propiedades)
 
 Concepto: Son los parámetros que se pasan a los componentes para personalizarlos.
 
 Ejemplo:
-
+```
 function Saludo(props) {
   return <h1>Hola, {props.nombre}</h1>;
 }
 
 // Uso:
 <Saludo nombre="Edwin" />
+```
 
 # 4. Estado (useState)
 
 Concepto: El estado permite a los componentes manejar y recordar valores internos.
 
 Ejemplo:
-
+```
 import { useState } from 'react';
 
 function Contador() {
@@ -50,13 +54,13 @@ function Contador() {
     </div>
   );
 }
-
+```
 # 5. Eventos
 
 Concepto: Permiten manejar acciones del usuario, como clics o escritura.
 
 Ejemplo:
-
+```
 function Boton() {
   function handleClick() {
     alert('¡Hiciste clic!');
@@ -64,13 +68,13 @@ function Boton() {
 
   return <button onClick={handleClick}>Haz clic</button>;
 }
-
+```
 # 6. useEffect (Efectos secundarios)
 
 Concepto: Se usa para ejecutar código cuando el componente se monta, actualiza o desmonta.
 
 Ejemplo:
-
+```
 import { useEffect } from 'react';
 
 function Temporizador() {
@@ -80,23 +84,23 @@ function Temporizador() {
 
   return <p>Mira la consola</p>;
 }
-
+```
 # 7. Renderizado condicional
 
 Concepto: Permite mostrar diferentes elementos según ciertas condiciones.
 
 Ejemplo:
-
+```
 function Mensaje({ esVisible }) {
   return esVisible ? <p>¡Visible!</p> : <p>Oculto</p>;
 }
-
+```
 # 8. Listas y keys
 
 Concepto: Se usa .map() para renderizar listas. Las key son necesarias para optimizar el rendimiento.
 
 Ejemplo:
-
+```
 function Lista({ nombres }) {
   return (
     <ul>
@@ -106,13 +110,13 @@ function Lista({ nombres }) {
     </ul>
   );
 }
-
+```
 # 9. Lifting state up
 
 Concepto: Compartir estado entre componentes hijos moviéndolo al componente padre.
 
 Ejemplo:
-
+```
 function Padre() {
   const [valor, setValor] = useState('');
 
@@ -127,13 +131,13 @@ function Padre() {
 function Hijo({ onCambio }) {
   return <input onChange={(e) => onCambio(e.target.value)} />;
 }
-
+```
 # 10. Hooks personalizados
 
 Concepto: Reutilizar lógica de estado o efecto creando funciones con use.
 
 Ejemplo:
-
+```
 function useContador() {
   const [contador, setContador] = useState(0);
   const incrementar = () => setContador(c => c + 1);
@@ -149,7 +153,7 @@ function Componente() {
     </div>
   );
 }
-
+```
 # 11. Crear el proyecto con Vite
 
     npx create-react-app front-files
