@@ -1,3 +1,4 @@
+// src/components/NuevaTarea.jsx
 import { useState } from 'react';
 
 function NuevaTarea({ onAgregar }) {
@@ -12,13 +13,21 @@ function NuevaTarea({ onAgregar }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="flex gap-2 my-4">
       <input
         value={texto}
         onChange={(e) => setTexto(e.target.value)}
-        placeholder="Escribe una tarea"
+        placeholder="Añade una nueva tarea..."
+        className="input-mac"
+        autoFocus
       />
-      <button type="submit">Agregar</button>
+      <button
+        type="submit"
+        className="btn-mac text-white"
+        aria-label="Agregar tarea"
+      >
+        ➕
+      </button>
     </form>
   );
 }

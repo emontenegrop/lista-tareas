@@ -1,6 +1,7 @@
+// src/hooks/useTareas.js
 import { useState, useEffect } from 'react';
 
-function useTareas() {
+const useTareas = () => {
   const [tareas, setTareas] = useState(() => {
     const guardadas = localStorage.getItem('tareas');
     return guardadas ? JSON.parse(guardadas) : [];
@@ -14,18 +15,18 @@ function useTareas() {
     const nueva = {
       id: Date.now(),
       texto,
-      completada: false
+      completada: false,
     };
-    setTareas([...tareas, nueva]);
+    setTareas((prev) => [nueva, ...prev]);
   };
 
   const toggleTarea = (id) => {
-    setTareas(tareas.map(t =>
-      t.id === id ? { ...t, completada: !t.completada } : t
-    ));
+    setTareas((prev) =>
+      prev.map((t) => (t.id === id ? { ...t, completada: !t.completada } : t))
+    );
   };
 
   return { tareas, agregarTarea, toggleTarea };
-}
+};
 
 export default useTareas;

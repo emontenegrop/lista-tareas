@@ -1,199 +1,69 @@
-# lista-tareas
-Conceptos principales de react
+# ✅ Lista de Tareas con React
 
+![React](https://img.shields.io/badge/React-18-blue?logo=react)  
+![Vite](https://img.shields.io/badge/Vite-Build%20Tool-orange?logo=vite)  
+![Estado](https://img.shields.io/badge/Estado-En%20desarrollo-green)  
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-# 1. Componentes
+Aplicación web de **Lista de Tareas** desarrollada con **React + Vite**, creada como parte de un **proyecto de aprendizaje**.  
 
-Concepto: Son la base de cualquier aplicación React. Un componente puede ser una función o una clase que devuelve JSX (HTML con JavaScript).
-
-Ejemplo:
-  ```
-  function Saludo() {
-    return <h1>Hola, Mundo!</h1>;
-  }
-  ```
-  
-
-# 2. JSX (JavaScript XML)
-
-Concepto: Es una sintaxis que permite escribir HTML dentro de JavaScript.
-
-Ejemplo:
-```
-const elemento = <h1>¡Hola desde JSX!</h1>;
-```
-
-# 3. Props (Propiedades)
-
-Concepto: Son los parámetros que se pasan a los componentes para personalizarlos.
-
-Ejemplo:
-```
-function Saludo(props) {
-  return <h1>Hola, {props.nombre}</h1>;
-}
-
-// Uso:
-<Saludo nombre="Edwin" />
-```
-
-# 4. Estado (useState)
-
-Concepto: El estado permite a los componentes manejar y recordar valores internos.
-
-Ejemplo:
-```
-import { useState } from 'react';
-
-function Contador() {
-  const [contador, setContador] = useState(0);
-  return (
-    <div>
-      <p>Contador: {contador}</p>
-      <button onClick={() => setContador(contador + 1)}>Incrementar</button>
-    </div>
-  );
-}
-```
-# 5. Eventos
-
-Concepto: Permiten manejar acciones del usuario, como clics o escritura.
-
-Ejemplo:
-```
-function Boton() {
-  function handleClick() {
-    alert('¡Hiciste clic!');
-  }
-
-  return <button onClick={handleClick}>Haz clic</button>;
-}
-```
-# 6. useEffect (Efectos secundarios)
-
-Concepto: Se usa para ejecutar código cuando el componente se monta, actualiza o desmonta.
-
-Ejemplo:
-```
-import { useEffect } from 'react';
-
-function Temporizador() {
-  useEffect(() => {
-    console.log('Componente montado');
-  }, []);
-
-  return <p>Mira la consola</p>;
-}
-```
-# 7. Renderizado condicional
-
-Concepto: Permite mostrar diferentes elementos según ciertas condiciones.
-
-Ejemplo:
-```
-function Mensaje({ esVisible }) {
-  return esVisible ? <p>¡Visible!</p> : <p>Oculto</p>;
-}
-```
-# 8. Listas y keys
-
-Concepto: Se usa .map() para renderizar listas. Las key son necesarias para optimizar el rendimiento.
-
-Ejemplo:
-```
-function Lista({ nombres }) {
-  return (
-    <ul>
-      {nombres.map((nombre, index) => (
-        <li key={index}>{nombre}</li>
-      ))}
-    </ul>
-  );
-}
-```
-# 9. Lifting state up
-
-Concepto: Compartir estado entre componentes hijos moviéndolo al componente padre.
-
-Ejemplo:
-```
-function Padre() {
-  const [valor, setValor] = useState('');
-
-  return (
-    <div>
-      <Hijo onCambio={setValor} />
-      <p>Valor: {valor}</p>
-    </div>
-  );
-}
-
-function Hijo({ onCambio }) {
-  return <input onChange={(e) => onCambio(e.target.value)} />;
-}
-```
-# 10. Hooks personalizados
-
-Concepto: Reutilizar lógica de estado o efecto creando funciones con use.
-
-Ejemplo:
-```
-function useContador() {
-  const [contador, setContador] = useState(0);
-  const incrementar = () => setContador(c => c + 1);
-  return { contador, incrementar };
-}
-
-function Componente() {
-  const { contador, incrementar } = useContador();
-  return (
-    <div>
-      <p>{contador}</p>
-      <button onClick={incrementar}>Sumar</button>
-    </div>
-  );
-}
-```
-# 11. Crear el proyecto con Vite
-
-    npx create-react-app front-files
-
-    npm create vite@latest lista-tareas-react -- --template react
-
-    Esto creará una carpeta llamada lista-tareas-react con la estructura de un proyecto React.
-
-# 12. Entrar a la carpeta del proyecto
-
-    cd lista-tareas-react
-
-# 13. Instalar las dependencias
-
-    npm install
-
-# 14. Crear las carpetas del proyecto
-
-    mkdir src/components src/hooks
-
-# 15. Ejecutar el servidor de desarrollo
-
-npm run dev
-
-Esto abrirá la app en http://localhost:5173.
-
+Su objetivo es reforzar conceptos clave del desarrollo frontend moderno, aplicando buenas prácticas y organización de proyectos.
 
 ---
-# ¿Qué conceptos usa este proyecto?
+
+## 🚀 Características
+
+- 📦 Creación del proyecto con Vite para un entorno rápido y moderno.
+- ⚛️ Uso de componentes reutilizables para mayor modularidad.
+- 🔄 Manejo de estado con useState y eventos para la interacción.
+- 🧩 Implementación de props para comunicación entre componentes.
+- 📝 Registro de tareas con renderizado condicional.
+- 📑 Listado dinámico de tareas con .map() y keys únicas.
+- 📤 Lifting State Up para centralizar el control del estado en el componente principal.
+- 🛠️ Creación de un hook personalizado (useTareas) para reutilizar lógica.
+- 💾 Persistencia de datos en localStorage con useEffect.
+
+---
+
+## 📚 Conceptos de React aplicados
+
+| Concepto            | Uso en el proyecto                           |
+| ------------------- | -------------------------------------------- |
+| **Componentes**     | `App`, `NuevaTarea`, `ListaTareas`, `Tarea` |
+| **JSX**             | En todos los componentes                     |
+| **Props**           | `NuevaTarea`, `ListaTareas`, `Tarea`        |
+| **useState**        | `NuevaTarea`, `useTareas`                   |
+| **Eventos**         | `onClick`, `onChange`, `onSubmit`           |
+| **useEffect**       | Guardado en `localStorage`                  |
+| **Renderizado cond.** | `if (tareas.length === 0)`                |
+| **Listas y keys**   | `tareas.map` con `key={tarea.id}`           |
+| **Lifting State Up**| `App` maneja el estado global de tareas     |
+| **Hook personalizado** | `useTareas()`                            |
+
+---
+
+## 🛠️ Instalación y ejecución
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/emontenegrop/lista-tareas.git
+
+# Entrar al proyecto
+cd lista-tareas
+
+# Instalar dependencias
+npm install
+
+# Ejecutar servidor de desarrollo
+npm run dev
+
+# Ejecutar el servidor con docker
+docker compose -f docker-compose-dev.yaml up --build -d
+```
+# ingresar 
+http://localhost:5173/
 
 
-| Concepto            | Dónde se usa                                |
-| ------------------- | ------------------------------------------- |
-| Componentes         | `App`, `NuevaTarea`, `ListaTareas`, `Tarea` |
-| JSX                 | En todos los archivos                       |
-| Props               | `NuevaTarea`, `ListaTareas`, `Tarea`        |
-| Estado (`useState`) | `NuevaTarea`, `useTareas`                   |
-| Eventos             | `onClick`, `onChange`, `onSubmit`           |
-| useEffect           | Guardado automático en `localStorage`       |
-| Renderizado cond.   | `if (tareas.length === 0)`                  |
-| Listas y keys       | `tareas.map` con `key={tarea.id}`           |
-| Lifting State Up    | `App` maneja las tareas                     |
-| Hook personalizado  | `useTareas()`                               |
+# Pantalla del sistema
+
+![aplicación](images/screem.png)
